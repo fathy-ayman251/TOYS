@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOYS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       background-color: #f8f9fa;
@@ -16,6 +17,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
     .lang-switch {
       position: absolute;
@@ -37,6 +39,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 15px;
       text-align: center;
+      position: relative;
     }
     .product img {
       max-width: 100%;
@@ -48,6 +51,16 @@
     .price {
       color: #28a745;
       font-weight: bold;
+    }
+    .edit-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ffc107;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
     }
     footer {
       text-align: center;
@@ -62,8 +75,19 @@
       padding: 10px 15px;
       border-radius: 8px;
     }
-    .social-buttons a.facebook { background-color: #4267B2; }
-    .social-buttons a.instagram { background-color: #C13584; }
+    .facebook { background-color: #4267B2 !important; }
+    .instagram { background-color: #C13584 !important; }
+    .dashboard-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #17a2b8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -75,34 +99,42 @@
         <option value="en">English</option>
       </select>
     </div>
+    <button class="dashboard-btn" onclick="openDashboard()">لوحة التحكم</button>
   </header>
 
   <main class="product-grid" id="product-grid">
-    <!-- يمكنك تكرار هذا البلوك لحد 50 منتج -->
+    <!-- منتجات تجريبية (سيتم توسيعها لـ 50 لاحقًا)-->
     <div class="product">
+      <button class="edit-btn" onclick="editProduct(this)">تعديل</button>
       <img src="product1.jpg" alt="منتج 1">
-      <h3>اسم المنتج</h3>
-      <p>وصف قصير للمنتج.</p>
-      <p class="price">150 جنيه</p>
+      <h3 contenteditable="true">اسم المنتج</h3>
+      <p contenteditable="true">وصف قصير للمنتج.</p>
+      <p class="price" contenteditable="true">150 جنيه</p>
     </div>
-    <!-- أضف مزيد من المنتجات هنا -->
   </main>
 
   <footer>
+    <p>📞 للتواصل: 01234567890</p>
     <div class="social-buttons">
-      <a href="https://wa.me/201000000000" target="_blank">واتساب</a>
-      <a href="https://www.facebook.com/messages/t/YOUR_PAGE_ID" class="facebook" target="_blank">فيسبوك</a>
-      <a href="https://www.instagram.com/YOUR_PROFILE" class="instagram" target="_blank">إنستجرام</a>
+      <a href="https://wa.me/201000000000" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+      <a href="https://www.facebook.com/messages/t/YOUR_PAGE_ID" class="facebook" target="_blank"><i class="fab fa-facebook-messenger"></i> فيسبوك</a>
+      <a href="https://www.instagram.com/YOUR_PROFILE" class="instagram" target="_blank"><i class="fab fa-instagram"></i> إنستجرام</a>
     </div>
   </footer>
 
   <script>
     function changeLang(lang) {
-      // تقدر تطور ده لتبديل النصوص بالكامل حسب اللغة
-      alert("تبديل اللغة إلى: " + lang);
+      alert("تم تغيير اللغة إلى: " + lang);
+    }
+
+    function openDashboard() {
+      alert("هنا يتم فتح لوحة التحكم (سيتم تطويرها لاحقًا باستخدام Firebase)");
+    }
+
+    function editProduct(button) {
+      const parent = button.parentElement;
+      alert("قم بتعديل النص مباشرة ثم احفظ التعديلات من لوحة التحكم لاحقًا.");
     }
   </script>
 </body>
 </html>
-
-
